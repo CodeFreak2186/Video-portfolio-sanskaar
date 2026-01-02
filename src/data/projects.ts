@@ -1,15 +1,8 @@
 /**
- * PROJECT DATA - Single source of truth for all video projects
- * 
- * Videos hosted on Google Drive (using preview embed format)
+ * PROJECT DATA - Videos hosted on Google Drive
  */
 
-export type ProjectCategory =
-    | 'commercial'
-    | 'music-video'
-    | 'documentary'
-    | 'film'
-    | 'motion';
+export type ProjectCategory = 'commercial' | 'music-video' | 'documentary' | 'film' | 'motion';
 
 export interface Project {
     id: string;
@@ -17,15 +10,13 @@ export interface Project {
     category: ProjectCategory;
     description: string;
     videoUrl: string;
-    driveId: string; // Google Drive file ID for iframe embed
-    thumbnail?: string;
+    driveId: string;
     featured?: boolean;
     year: number;
     client?: string;
     duration?: string;
 }
 
-// Category display names for UI
 export const categoryLabels: Record<ProjectCategory, string> = {
     'commercial': 'Commercial',
     'music-video': 'Music Video',
@@ -34,15 +25,12 @@ export const categoryLabels: Record<ProjectCategory, string> = {
     'motion': 'Motion Graphics',
 };
 
-/**
- * Main projects array - Videos hosted on Google Drive
- */
 export const projects: Project[] = [
     {
         id: 'midnight-drive',
         title: 'Midnight Drive',
         category: 'commercial',
-        description: 'Cinematic automotive commercial featuring moody night photography and dynamic color grading.',
+        description: 'Cinematic automotive commercial featuring moody night photography.',
         videoUrl: 'https://drive.google.com/file/d/1jYJfd39O9PrBLpMu1LGn7k3eBqMNWDbs/preview',
         driveId: '1jYJfd39O9PrBLpMu1LGn7k3eBqMNWDbs',
         featured: true,
@@ -54,7 +42,7 @@ export const projects: Project[] = [
         id: 'neon-dreams',
         title: 'Neon Dreams',
         category: 'music-video',
-        description: 'High-energy music video with vibrant neon aesthetics and seamless visual effects.',
+        description: 'High-energy music video with vibrant neon aesthetics.',
         videoUrl: 'https://drive.google.com/file/d/1hmv9k2lyG8G_RJUYl2mf-_cMmEKSI3hN/preview',
         driveId: '1hmv9k2lyG8G_RJUYl2mf-_cMmEKSI3hN',
         featured: false,
@@ -66,7 +54,7 @@ export const projects: Project[] = [
         id: 'urban-stories',
         title: 'Urban Stories',
         category: 'documentary',
-        description: 'Documentary exploring city life through intimate portraits and atmospheric storytelling.',
+        description: 'Documentary exploring city life through intimate portraits.',
         videoUrl: 'https://drive.google.com/file/d/1asKoI2utuUbVGrijkgdKq87gpvnF-g1e/preview',
         driveId: '1asKoI2utuUbVGrijkgdKq87gpvnF-g1e',
         featured: false,
@@ -77,7 +65,7 @@ export const projects: Project[] = [
         id: 'the-last-frame',
         title: 'The Last Frame',
         category: 'film',
-        description: 'Award-winning short film about a photographer\'s final assignment. Sundance Selection 2023.',
+        description: 'Award-winning short film about a photographer.',
         videoUrl: 'https://drive.google.com/file/d/10V4lLOCY3pgHLofJLt2Fq1C9IOPUVzWb/preview',
         driveId: '10V4lLOCY3pgHLofJLt2Fq1C9IOPUVzWb',
         featured: false,
@@ -88,7 +76,7 @@ export const projects: Project[] = [
         id: 'brand-evolution',
         title: 'Brand Evolution',
         category: 'motion',
-        description: 'Dynamic motion graphics package for tech startup rebrand, featuring 3D elements and kinetic typography.',
+        description: 'Dynamic motion graphics for tech startup rebrand.',
         videoUrl: 'https://drive.google.com/file/d/1_XvTkmGQ4me1qYiKRCBdPPpiXtJNZ8Og/preview',
         driveId: '1_XvTkmGQ4me1qYiKRCBdPPpiXtJNZ8Og',
         featured: false,
@@ -98,17 +86,6 @@ export const projects: Project[] = [
     },
 ];
 
-// Helper: Get featured project for showreel
-export const getFeaturedProject = (): Project | undefined => {
-    return projects.find(p => p.featured);
-};
-
-// Helper: Get projects by category
-export const getProjectsByCategory = (category: ProjectCategory): Project[] => {
-    return projects.filter(p => p.category === category);
-};
-
-// Helper: Get project by ID
-export const getProjectById = (id: string): Project | undefined => {
-    return projects.find(p => p.id === id);
-};
+export const getFeaturedProject = (): Project | undefined => projects.find(p => p.featured);
+export const getProjectsByCategory = (category: ProjectCategory): Project[] => projects.filter(p => p.category === category);
+export const getProjectById = (id: string): Project | undefined => projects.find(p => p.id === id);
