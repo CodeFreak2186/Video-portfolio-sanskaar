@@ -1,7 +1,7 @@
 /**
  * PROJECT DATA - Single source of truth for all video projects
  * 
- * Videos hosted on Google Drive
+ * Videos hosted on Google Drive (using preview embed format)
  */
 
 export type ProjectCategory =
@@ -17,7 +17,7 @@ export interface Project {
     category: ProjectCategory;
     description: string;
     videoUrl: string;
-    fallbackUrl?: string;
+    driveId: string; // Google Drive file ID for iframe embed
     thumbnail?: string;
     featured?: boolean;
     year: number;
@@ -43,7 +43,8 @@ export const projects: Project[] = [
         title: 'Midnight Drive',
         category: 'commercial',
         description: 'Cinematic automotive commercial featuring moody night photography and dynamic color grading.',
-        videoUrl: 'https://drive.google.com/uc?export=download&id=1jYJfd39O9PrBLpMu1LGn7k3eBqMNWDbs',
+        videoUrl: 'https://drive.google.com/file/d/1jYJfd39O9PrBLpMu1LGn7k3eBqMNWDbs/preview',
+        driveId: '1jYJfd39O9PrBLpMu1LGn7k3eBqMNWDbs',
         featured: true,
         year: 2024,
         client: 'Automotive Brand',
@@ -54,7 +55,8 @@ export const projects: Project[] = [
         title: 'Neon Dreams',
         category: 'music-video',
         description: 'High-energy music video with vibrant neon aesthetics and seamless visual effects.',
-        videoUrl: 'https://drive.google.com/uc?export=download&id=1hmv9k2lyG8G_RJUYl2mf-_cMmEKSI3hN',
+        videoUrl: 'https://drive.google.com/file/d/1hmv9k2lyG8G_RJUYl2mf-_cMmEKSI3hN/preview',
+        driveId: '1hmv9k2lyG8G_RJUYl2mf-_cMmEKSI3hN',
         featured: false,
         year: 2024,
         client: 'Independent Artist',
@@ -65,7 +67,8 @@ export const projects: Project[] = [
         title: 'Urban Stories',
         category: 'documentary',
         description: 'Documentary exploring city life through intimate portraits and atmospheric storytelling.',
-        videoUrl: 'https://drive.google.com/uc?export=download&id=1asKoI2utuUbVGrijkgdKq87gpvnF-g1e',
+        videoUrl: 'https://drive.google.com/file/d/1asKoI2utuUbVGrijkgdKq87gpvnF-g1e/preview',
+        driveId: '1asKoI2utuUbVGrijkgdKq87gpvnF-g1e',
         featured: false,
         year: 2023,
         duration: '12:00',
@@ -75,7 +78,8 @@ export const projects: Project[] = [
         title: 'The Last Frame',
         category: 'film',
         description: 'Award-winning short film about a photographer\'s final assignment. Sundance Selection 2023.',
-        videoUrl: 'https://drive.google.com/uc?export=download&id=10V4lLOCY3pgHLofJLt2Fq1C9IOPUVzWb',
+        videoUrl: 'https://drive.google.com/file/d/10V4lLOCY3pgHLofJLt2Fq1C9IOPUVzWb/preview',
+        driveId: '10V4lLOCY3pgHLofJLt2Fq1C9IOPUVzWb',
         featured: false,
         year: 2023,
         duration: '18:00',
@@ -85,7 +89,8 @@ export const projects: Project[] = [
         title: 'Brand Evolution',
         category: 'motion',
         description: 'Dynamic motion graphics package for tech startup rebrand, featuring 3D elements and kinetic typography.',
-        videoUrl: 'https://drive.google.com/uc?export=download&id=1_XvTkmGQ4me1qYiKRCBdPPpiXtJNZ8Og',
+        videoUrl: 'https://drive.google.com/file/d/1_XvTkmGQ4me1qYiKRCBdPPpiXtJNZ8Og/preview',
+        driveId: '1_XvTkmGQ4me1qYiKRCBdPPpiXtJNZ8Og',
         featured: false,
         year: 2024,
         client: 'Tech Startup',
